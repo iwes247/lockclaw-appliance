@@ -2,6 +2,39 @@
 
 Hardened Linux appliance for self-hosting AI runtimes on VMs and bare metal.
 
+## Start Here (Pick One)
+
+| I want to… | Use |
+|------------|-----|
+| Run AI runtimes in Docker with sane security defaults | [lockclaw-baseline](https://github.com/iwes247/lockclaw-baseline) |
+| Harden a VM or bare-metal host for AI workloads | **lockclaw-appliance** *(you are here)* |
+| Understand the shared audit/policy layer | [lockclaw-core](https://github.com/iwes247/lockclaw-core) *(vendored — most users don't clone directly)* |
+
+## How the repos fit together
+
+```
+┌───────────────────┐     ┌────────────────────┐
+│ lockclaw-baseline │     │ lockclaw-appliance  │
+│  (Docker / OCI)   │     │ (VM / bare metal)   │
+└────────┬──────────┘     └────────┬───────────┘
+         │                         │
+         └───────────┬─────────────┘
+                     │ vendored at lockclaw-core/
+              ┌──────▼──────┐
+              │ lockclaw-core│
+              │  (policies,  │
+              │  audit, scan)│
+              └──────────────┘
+```
+
+## Success looks like
+
+- Every listening port appears in the allowlist — or the build fails.
+- SSH (when enabled) accepts only key-based auth with modern ciphers.
+- No runtime process runs as root.
+- Smoke tests exit 0 on a clean build with zero manual steps.
+- A newcomer can identify which repo to use in under 15 seconds.
+
 ## Who it's for
 
 Operators deploying AI runtimes on VPSes, homelab servers, or bare-metal machines who want OS-level hardening applied at build time — not as an afterthought.
