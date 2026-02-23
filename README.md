@@ -2,6 +2,9 @@
 
 Hardened Linux appliance for self-hosting AI runtimes on VMs and bare metal.
 
+This is the layer where host-level firewalling, auditing, and optional outbound/egress controls may live.
+Baseline v1 does not enforce outbound restrictions.
+
 ## Start Here (Pick One)
 
 | I want to… | Use |
@@ -44,6 +47,7 @@ Operators deploying AI runtimes on VPSes, homelab servers, or bare-metal machine
 - **Not a Docker deployment tool.** For containers, use [lockclaw-baseline](https://github.com/iwes247/lockclaw-baseline).
 - **Not a general-purpose Linux distro.** This is a single-purpose appliance image with an opinionated security posture.
 - **Not optional hardening.** Security policy is applied at build time. You cannot "turn it off" without rebuilding.
+- **Not the baseline runtime guard.** Container startup preflight and mode policy enforcement belong to baseline + lockclaw-core.
 
 ## What it does
 
