@@ -177,14 +177,10 @@ docs/                     ← threat model, security posture, networking posture
 - **[lockclaw-baseline](https://github.com/iwes247/lockclaw-baseline)** — Container deployment baseline (Docker/Compose, no OS-level hardening)
 - **[lockclaw-core](https://github.com/iwes247/lockclaw-core)** — Shared audit scripts and port allowlists
 
-## Contributing — vibe-sync workflow
+## Contributing
 
-This project uses a phone-to-VSCode bridge for development:
-
-1. **From your phone** — Edit `.github/prompts/active-spec.md` via GPT, commit and push.
-2. **At your workstation** — Run `lets-go` (PowerShell) or `./scripts/vibe-sync.sh` to pull the spec.
-3. **Copilot executes** — VS Code Copilot reads the active spec and implements the task.
-4. **Sync back** — Run `sync-vibe` to archive the completed task and push state back for your phone.
+Contributing workflow: see [lockclaw-core/CONTRIBUTING.md](https://github.com/iwes247/lockclaw-core/blob/main/CONTRIBUTING.md).
+Changes must be reproducible and must not weaken fail-closed defaults.
 
 ## License
 
